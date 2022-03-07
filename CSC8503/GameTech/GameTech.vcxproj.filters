@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="StateMachineCode">
+      <UniqueIdentifier>{bf34ded6-63cc-40c0-bfb6-d0bda46864f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{785bd276-35b2-422b-ad93-9a50ff99cdd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTechRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionConstraint.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateGameObject_custom.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateGameObject.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameTechRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateGameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateGameObject_custom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel1.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMenu.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseScreen.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_Walk.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_ChasePlayer.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_lookforbonus.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLevel2.h">
+      <Filter>StateMachineCode</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Assets\Shaders\ExtendPaintFrag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\ExtendPaintVert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\PaintTextureFrag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\..\Assets\Shaders\PaintTextureVert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
