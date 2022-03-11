@@ -102,6 +102,24 @@ void OGLRenderer::OnWindowResize(int w, int h)	 {
 	glViewport(0, 0, currentWidth, currentHeight);
 }
 
+void OGLRenderer::bind_matrix_4_fv(const std::string& name, const float* data) const
+{
+	const auto location = glGetUniformLocation(boundShader->GetProgramID(), name.c_str());
+	glUniformMatrix4fv(location, 1, false, data);
+}
+
+void OGLRenderer::bind_4_fv(const std::string& name, const float* data) const
+{
+	const auto location = glGetUniformLocation(boundShader->GetProgramID(), name.c_str());
+	glUniform4fv(location, 1, data);
+}
+
+void OGLRenderer::bind_1_i(const std::string& name, const bool data) const
+{
+	const auto location = glGetUniformLocation(boundShader->GetProgramID(), name.c_str());
+	glUniform1i(location, data);
+}
+
 void OGLRenderer::BeginFrame()		{
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -121,19 +139,25 @@ void OGLRenderer::SwapBuffers()   {
 	::SwapBuffers(deviceContext);
 }
 
-void OGLRenderer::BindShader(ShaderBase*s) {
+bool OGLRenderer::BindShader(ShaderBase*s) {
+	auto shader_changed = false;
 	if (!s) {
 		glUseProgram(0);
 		boundShader = nullptr;
 	}
-	else if (OGLShader* oglShader = dynamic_cast<OGLShader*>(s)) {
-		glUseProgram(oglShader->programID);
-		boundShader = oglShader;
+	else if (OGLShader * oglShader = dynamic_cast<OGLShader*>(s)) {
+		if (oglShader != boundShader) {
+			glUseProgram(oglShader->programID);
+			boundShader = oglShader;
+			shader_changed = true;
+		}
+			
 	}
 	else {
 		std::cout << __FUNCTION__ << " has received invalid shader?!" << std::endl;
 		boundShader = nullptr;
 	}
+	return shader_changed;
 }
 
 void OGLRenderer::BindMesh(MeshGeometry*m) {

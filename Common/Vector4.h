@@ -91,6 +91,11 @@ namespace NCL {
 				return v;
 			}
 
+			const float* as_float_array() const
+			{
+				return array;
+			}
+
 			static float	Dot(const Vector4 &a, const Vector4 &b) {
 				return (a.x*b.x) + (a.y*b.y) + (a.z*b.z) + (a.w*b.w);
 			}

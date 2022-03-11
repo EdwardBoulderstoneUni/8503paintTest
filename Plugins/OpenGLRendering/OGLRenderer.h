@@ -64,7 +64,13 @@ namespace NCL {
 
 			virtual Matrix4 SetupDebugLineMatrix()	const;
 			virtual Matrix4 SetupDebugStringMatrix()const;
-
+			
+			bool BindShader(ShaderBase* s);
+			void BindTextureToShader(const TextureBase* t, const std::string& uniform, int texUnit) const;
+			virtual void bind_shader_defaults() {}
+			void bind_matrix_4_fv(const std::string& name, const float* data) const;
+			void bind_4_fv(const std::string& name, const float* data) const;
+			void bind_1_i(const std::string& name, const bool data) const;
 		protected:			
 			void BeginFrame()	override;
 			void RenderFrame()	override;
@@ -75,10 +81,11 @@ namespace NCL {
 			void DrawDebugStrings();
 			void DrawDebugLines();
 
-			void BindShader(ShaderBase*s);
-			void BindTextureToShader(const TextureBase*t, const std::string& uniform, int texUnit) const;
+			
+			
 			void BindMesh(MeshGeometry*m);
 			void DrawBoundMesh(int subLayer = 0, int numInstances = 1);
+			OGLShader* boundShader;
 #ifdef _WIN32
 			void InitWithWin32(Window& w);
 			void DestroyWithWin32();
@@ -102,8 +109,7 @@ namespace NCL {
 			OGLMesh* debugLinesMesh;
 			OGLMesh* debugTextMesh;
 
-			OGLMesh*	boundMesh;
-			OGLShader*	boundShader;
+			OGLMesh* boundMesh;
 
 			OGLShader*  debugShader;
 			SimpleFont* font;

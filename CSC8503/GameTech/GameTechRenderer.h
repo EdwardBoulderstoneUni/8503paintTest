@@ -19,7 +19,7 @@ namespace NCL {
 
 			//Vector3 position,float radius = 1.0f,float hardness = 0.5f,float strength = 0.5f,Vector4 paintcolor = Vector4(1, 0, 0, 1)
 			void RenderPaint();
-
+			void bind_shader_defaults() override;
 		protected:
 			void RenderFrame()	override;
 
@@ -33,6 +33,7 @@ namespace NCL {
 			void BuildObjectList();
 			void SortObjectList();
 			void RenderShadowMap();
+			void bind_shadow_matrix(const RenderObject* i);
 			void RenderCamera(); 
 			void RenderSkybox();
 			

@@ -1,10 +1,13 @@
 #pragma once
-#include "../../Common/Matrix4.h"
 #include "../../Common/TextureBase.h"
 #include "../../Common/ShaderBase.h"
 #include "../../Common/Vector4.h"
-
 namespace NCL {
+	namespace Rendering
+	{
+		class OGLRenderer;
+	}
+
 	using namespace NCL::Rendering;
 
 	class MeshGeometry;
@@ -16,8 +19,9 @@ namespace NCL {
 		{
 		public:
 			RenderObject(Transform* parentTransform, MeshGeometry* mesh, TextureBase* tex, ShaderBase* shader);
-			~RenderObject();
 
+			void render(OGLRenderer* renderer);
+			void bind_shader_values(const OGLRenderer* renderer) const;
 			void SetDefaultTexture(TextureBase* t) {
 				texture = t;
 			}
