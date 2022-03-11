@@ -20,7 +20,7 @@ namespace NCL {
 		public:
 			RenderObject(Transform* parentTransform, MeshGeometry* mesh, TextureBase* tex, ShaderBase* shader);
 
-			void render(OGLRenderer* renderer);
+			void render(OGLRenderer* renderer) const;
 			void bind_shader_values(const OGLRenderer* renderer) const;
 			void SetDefaultTexture(TextureBase* t) {
 				texture = t;
